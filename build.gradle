@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id "io.qameta.allure" version "2.11.2"
+
+}
+task cleanAllureDir(type: Delete) {
+    delete "build/allure-results"
+
+}
+compileJava {
+    finalizedBy cleanAllureDir
+}
+
+group = 'org.roman'
+version = '1.0-SNAPSHOT'
+
+allure {
+    version ='2.24.0'
+    autoconfigure = true
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation  group: 'org.testng', name: 'testng', version: '7.7.1'
+    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: '7.14.0'
+    testImplementation group: 'io.cucumber', name: 'cucumber-testng', version: '7.14.0'
+    implementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.24.0'
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.24.0'
+    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.24.0'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.2'
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.24.0'
+
+    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.24.0'
+
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+
+}
+test.doFirst {
+    new File("build/allure-results").mkdir()
+}
+test {
+    useTestNG()
+    testLogging {
+        exceptionFormat = "full"
+    }
+}
