@@ -14,11 +14,11 @@ README
 2) [запуск посредством xml](src/test/resources/testsuites/cucumbtest.xml)
 3) через командную строку  
 
-логи сохраняются в раздел /logs
-конфигурация логов (время хранения, объем, уровень итд ) производится [здесь(логгер)](src/test/java/logger/Logger.java)  
+логи сохраняются в раздел /logs.
+Конфигурация логов (время хранения, объем, уровень итд ) производится [здесь(логгер)](src/test/java/logger/Logger.java)  
 и [здесь(log4j2.xml)](src/test/resources/log4j2.xml)
 
-Allure отчет создается обычным образом через запуск AllureServ
+Allure отчет создается обычным образом через запуск AllureServе
 
 
 
