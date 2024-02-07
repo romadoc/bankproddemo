@@ -19,27 +19,29 @@ allure {
     autoconfigure = true
 }
 
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    //тест раннер TestNG
     testImplementation  group: 'org.testng', name: 'testng', version: '7.7.1'
+    //cucumber
     testImplementation group: 'io.cucumber', name: 'cucumber-java', version: '7.14.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-testng', version: '7.14.0'
+    //Allure
     implementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.24.0'
     implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.24.0'
     implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.24.0'
+    //RestAssured
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.2'
+    //log4j
     implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
     implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
-    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.24.0'
-
-    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.24.0'
-
+    //Lombok
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    //Jackson
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
 
 }
